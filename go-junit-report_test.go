@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jstemmer/go-junit-report/formatter"
-	"github.com/jstemmer/go-junit-report/parser"
+	"github.com/sebidude/go-junit-report/formatter"
+	"github.com/sebidude/go-junit-report/parser"
 )
 
 var matchTest = flag.String("match", "", "only test testdata matching this pattern")
@@ -735,40 +735,17 @@ var testCases = []TestCase{
 							Time:     0,
 							Result:   parser.FAIL,
 							Output: []string{
-								"test output",
-								"2 0xc4200153d0",
-								"==================",
-								"WARNING: DATA RACE",
-								"Write at 0x00c4200153d0 by goroutine 7:",
-								"  race_test.TestRace.func1()",
-								"      race_test.go:13 +0x3b",
-								"",
-								"Previous write at 0x00c4200153d0 by goroutine 6:",
-								"  race_test.TestRace()",
-								"      race_test.go:15 +0x136",
-								"  testing.tRunner()",
-								"      /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:657 +0x107",
-								"",
-								"Goroutine 7 (running) created at:",
-								"  race_test.TestRace()",
-								"      race_test.go:14 +0x125",
-								"  testing.tRunner()",
-								"      /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:657 +0x107",
-								"",
-								"Goroutine 6 (running) created at:",
-								"  testing.(*T).Run()",
-								"      /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:697 +0x543",
-								"  testing.runTests.func1()",
-								"      /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:882 +0xaa",
-								"  testing.tRunner()",
-								"      /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:657 +0x107",
-								"  testing.runTests()",
-								"      /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:888 +0x4e0",
-								"  testing.(*M).Run()",
-								"      /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:822 +0x1c3",
-								"  main.main()",
-								"      _test/_testmain.go:52 +0x20f",
-								"==================",
+								"  race_test.go:13 +0x3b",
+								"  race_test.go:15 +0x136",
+								"  /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:657 +0x107",
+								"  race_test.go:14 +0x125",
+								"  /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:657 +0x107",
+								"  /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:697 +0x543",
+								"  /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:882 +0xaa",
+								"  /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:657 +0x107",
+								"  /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:888 +0x4e0",
+								"  /usr/local/Cellar/go/1.8.3/libexec/src/testing/testing.go:822 +0x1c3",
+								"  _test/_testmain.go:52 +0x20f",
 								"testing.go:610: race detected during execution of test",
 							},
 						},
@@ -1512,7 +1489,7 @@ var testCases = []TestCase{
 		report: &parser.Report{
 			Packages: []parser.Package{
 				{
-					Name:     "github.com/jstemmer/test/failedsummary",
+					Name:     "github.com/sebidude/test/failedsummary",
 					Duration: 5 * time.Millisecond,
 					Time:     5,
 					Tests: []*parser.Test{
